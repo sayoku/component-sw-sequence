@@ -1,12 +1,10 @@
 # Portfolio Part 1: Component Brainstorming
 
-- **Name**: <!-- TODO: fill with first and last name (e.g., Brutus Buckeye) then delete this comment -->
-- **Dot Number**: <!-- TODO: fill with OSU dot number (e.g., buckeye.17) then delete this comment -->
-- **Due Date**: <!-- TODO: fill with due date and time (e.g., 10/17 @ 3:10 PM EST) then delete this comment -->
+- **Name**: Anna Huang
+- **Dot Number**: huang.5490
+- **Due Date**: 9/21 @ 1:50 PM EST
 
 ## Assignment Overview
-
-<!-- TODO: read the assignment overview then delete this comment -->
 
 The overall goal of the portfolio project is to have you design and implement
 your own OSU component. There are no limits to what you choose to design and
@@ -28,8 +26,6 @@ detailed feedback, which may help you decide which component to ultimately
 implement.
 
 ## Assignment Checklist
-
-<!-- TODO: browse the checklist then delete this comment -->
 
 To be sure you have completed everything on this assignment, we have littered
 this document with TODO comments. You can browse all of them in VSCode by
@@ -66,8 +62,6 @@ project. Specifically, students should be able to:
    discipline
 
 ## Assignment Rubric: 10 Points
-
-<!-- TODO: read the assignment rubric then delete this comment -->
 
 Again, to be completely transparent, most of the portfolio project, except the
 final submission, is designed as a formative assessment. Formative assessments
@@ -106,23 +100,23 @@ Below is further rationale/explanation for the rubric items above:
 > brainstorming. Plus it helps us get to know you better! Feel free to share
 > images in this section.
 
-<!-- TODO: briefly talk about your interests then delete this comment.
-Also, protip: you can preview what your response looks like by hitting
-the magnifying glass icon in the upper-right corner or pressing CTRL+K and
-then V. This kind of button combination is called a chord, for whatever
-reason -->
+> Also, protip: you can preview what your response looks like by hitting
+> the magnifying glass icon in the upper-right corner or pressing CTRL+K and
+> then V. This kind of button combination is called a chord, for whatever reason
+
+I am doing a dual-degree in Computer Science (CIS) and International Business with a minor in German. I played competitive soccer for 14 years, studied abroad during high school on the Congress-Bundestag Youth Exchange in Germany for 10 months, and did the Dresden Summer Language Program this past summer and am involved in the International Affairs Scholars Program
+
+I have a lot of interests. Soccer has accompanied me throughout my entire life until very recently. I like drawing, watching anime, listening to music, and being lazy. Seriously speaking, I am interested in other cultures, languages, and international studies.I don't have too many specific career goals, but I would be able to explore the intersection between technology and the international community.
+
+Where my real passion lies is in ballroom and latin dance. It's become the social and physical outlet that I've lacked after soccer. I have felt burnt out for the last three years, but I have a stubbornness and determination to push through college and really take advantage of my time here. I'm beginning to figure out that I'm interested in data, improving efficiency in systems, and being efficient/organized/systematic in my own life.
 
 ## Assignment
-
-<!-- TODO: read the assignment section then delete this comment -->
 
 As previously stated, you are tasked with brainstorming 3 possible components.
 To aid you in this process, we have provided [some example components][example-components]
 that may help you in your brainstorming. All of these components were made at
 some point by one of your peers, so you should feel confident that you can
 accomplish any of them.
-
-<!-- TODO: browse the list of possible projects then delete this comment -->
 
 There is no requirement that you use any of the components listed above.
 If you want to model something else, go for it! Very common early object
@@ -131,8 +125,6 @@ etc. Make of this whatever seems interesting to you, and keep in mind that
 you're just brainstorming right now. You do not have to commit to anything.
 
 ### Example Component
-
-<!-- TODO: review this example component then delete this comment -->
 
 To help you brainstorm a few components, we've provided an example below of a
 component you already know well: NaturalNumber. We highly recommend that you
@@ -200,68 +192,102 @@ will likely refine your design to make your implementation easier to use.
 
 > Please use this section to share your designs.
 
-- Component Design #1: <!-- TODO: give component a name then delete this comment -->
+- Component Design #1: AttendanceTracker
   - **Description**:
-    - <!-- TODO: describe your component then delete this comment -->
+    - This component tracks attendance to club meetings (intended for DanceSport at OSU) and thus needs to track how many times someone attends, which lessons they go to, and have enough functionality for the secretary or admin to modify names of events. Intended for OSU, needing student name, .#, and whether or not they attended.
   - **Kernel Methods**:
-    - <!-- TODO: list kernel methods then delete this comment -->
+    - void addMember(String name, int dotNum) : adds a member name and dot number
+    - Pair<String, int> removeMember(String name) : removes a member with a matching name and returns the pair of name and dotNum
+    - boolean hasMember (String name) : reports whether there is a member with this name
+    - int size () : reports the size of this
+    - int dotNum(String name) : reports dotNum associated with a member
   - **Secondary Methods**:
-    - <!-- TODO: list secondary methods then delete this comment -->
+    - boolean hasDotNum(int dotNum) : reports whether there is a member with dotNum
+    - String name(int dotNum) : reports a name associated with dotNum in this
+    - int replaceDotNum(String name, int dotNum) : replaces the old value associated with name in this with the new dotNum and returns the old value
+    - void combineWith(AttendanceTracker<String, int> a) : combines a with this
+    - void sharesNameWith(AttendanceTracker<String, int> a): reports whether this and a have any names in common
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes. You'd need to be able to edit the member list.
     - Would this component rely on any internal classes (e.g., `Map.Pair`)?
       Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes. AttendanceTracker would be very similar to Map and thus require a version of Map.Pair to return a singluar pair when removing.
     - Would this component need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - I don't think so.
     - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes, for instance, you can implment hasDotNum() with dotNum() by reporting the dotNum value associated with each value until recieving a matching value.
 
-- Component Design #2: <!-- TODO: give component a name then delete this comment -->
+- Component Design #2: HexColor
   - **Description**:
-    - <!-- TODO: describe your component then delete this comment -->
-  - **Kernel Methods**:
-    - <!-- TODO: list kernel methods then delete this comment -->
-  - **Secondary Methods**:
-    - <!-- TODO: list secondary methods then delete this comment -->
-  - **Additional Considerations** (*note*: "I don't know" is an acceptable
+    - Component that will model Hex color codes. Keeping a simple kernel that will be able to represent and manipulate hexadecimal color values.The component will provide basic color operations.
+- **Kernel Methods**:
+  - hexColor() : creates a default color (#000000)
+  - hexColor(String hex) : constructor from hex string
+  - String getHexValue() : returns the hex code as a string
+  - void setHexValue(String hex) : sets the hex value
+  - boolean equals(String hex) : compare for equality
+- **Secondary Methods**:
+  - int getRed() : extract red component (0-255 base 10)
+  - int getGreen() : extract green component
+  - int getBlue() : extract blue component
+  - void setRGB(int red, int green, int blue) : set color from RGB value
+  - boolean isValidHex(String hex): validate format
+  - HexColor lighten(double factor) : return lighter version
+  - HexColor darken(double factor) : return darker version
+  - double getLuminance() : calulcate brightness
+  - HexColor complement() : return complementary color
+- **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
-    - Would this component be mutable? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
-    - Would this component rely on any internal classes (e.g., `Map.Pair`)?
+  - Would this component be mutable? Answer and explain:
+    - Yes, colors need to be able to be adjusted on the fly, and being able to set the hex value and rgb values makes changes quicker.
+  - Would this component rely on any internal classes (e.g., `Map.Pair`)?
       Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
-    - Would this component need any enums or constants (e.g.,
+    - No - representation would be based off a string and RGB components can be done with int
+  - Would this component need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
-    - Can you implement your secondary methods using your kernel methods?
+    - Yes, at least for black (since it's the base). I can see white and black constants being useful.
+  - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
-      - <!-- TODO: provide an argument then delete this comment -->
+    - Yes, the kernel provides the representation of hex as a string and the secondary methods build off them. Ex: int getRed() can be implemented with getHexValue() and extracting the specific substring.
 
-- Component Design #3: <!-- TODO: give component a name then delete this comment -->
+- Component Design #3: Door
   - **Description**:
-    - <!-- TODO: describe your component then delete this comment -->
+    - A component that would model a (figurative) door. Said door would be a verification gate for whatever requirements need to be met in order for the door to open. Ex: for the door to open, clients would need to meet requirements that are being held in the door. The kernel organizes the requirements and is able to set them as met, as well as telling the client whether or not the door is open.
   - **Kernel Methods**:
-    - <!-- TODO: list kernel methods then delete this comment -->
+    - Door() - constructor to create an (open) door with no requirements
+    - Door(Set<String> requirementIDs) : constructor with requirements (Closed)
+    - void addRequriemtn(String requirementID) : add a new requirement
+    - void removeRequirement(String requirementID) : remove a requirement (not returning)
+    - void metRequirement(String requirementID) : mark a requirement as met
+    - void unmetRequirement(String requirementID) : mark a requirement as unmet
+    - boolean isOpen() : check if the door is open
+    - Set<String> getUnmetRequirements() : get all the ID's of unmet req
+    - boolean hasRequirement(String requirementID) : check if req exists
+    - void reset() : mark all req as unmet
   - **Secondary Methods**:
-    - <!-- TODO: list secondary methods then delete this comment -->
+    - boolean checkStatus(String requirementID) : check status of a specifc req
+    - Set<String> getMetRequirements() : get ID's of met req
+    - boolean isEmpty() : check if door has no requirements
+    - int getRequirementCount() : count total number of requirements
+    - int getUnmetCount() : count number of unmet requirements
+    - Door subDoor(Set<String> requirementIDs) : create another door with a subset of requirements
   - **Additional Considerations** (*note*: "I don't know" is an acceptable
     answer for each of the following questions):
     - Would this component be mutable? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes. To be able to track door requirements you;d need to be able to change them over time.
     - Would this component rely on any internal classes (e.g., `Map.Pair`)?
       Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Maybe. I haven't decided on how to organize requirements and their ID's yet. Currently it's a set but I may change to map. (In that case add a map.pair)
     - Would this component need any enums or constants (e.g.,
       `Program.Instruction`)? Answer and explain:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Also maybe. I could have a constant for status (open or closed)
     - Can you implement your secondary methods using your kernel methods?
       Answer, explain, and give at least one example:
-      - <!-- TODO: provide an argument then delete this comment -->
+      - Yes. I am trying to decide if I need that many kernel methods. For now, getUnmetCount() would use getUnmetRequirements and iterate through each ID to count them. But that is one that I might think more on.
 
 ## Post-Assignment
 
@@ -292,9 +318,9 @@ the following form: YYYY.0M.0D.
 
 ### Added
 
-- Designed a <!-- insert name of component 1 here --> component
-- Designed a <!-- insert name of component 2 here --> component
-- Designed a <!-- insert name of component 3 here --> component
+- Designed a AttendanceTracker component
+- Designed a HexColor component
+- Designed a Door component
 ```
 
 Here `YYYY.MM.DD` would be the date of your submission, such as 2024.04.21.
