@@ -134,7 +134,7 @@ public class HexColor {
     public boolean isValidHex(String hex) {
         assert hex != null : "Violation of: hex is not null.";
 
-        return false; // added only to compile rn
+        return true; // added only to compile rn
         // Not sure how I should check format yet
     }
 
@@ -158,6 +158,11 @@ public class HexColor {
 
     }
 
+    @Override
+    public String toString() {
+        return this.hexValue;
+    }
+
     /*
      * Main method ---------------------------------------------------
      */
@@ -177,7 +182,7 @@ public class HexColor {
         out.println("Color one: " + one);
 
         HexColor two = new HexColor("#FFD1DC");
-        out.println("Color one: " + two);
+        out.println("Color two: " + two);
 
         // Extracting RGB components:
 
