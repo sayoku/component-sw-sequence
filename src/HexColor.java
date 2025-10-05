@@ -1,3 +1,6 @@
+import components.simplewriter.SimpleWriter;
+import components.simplewriter.SimpleWriter1L;
+
 /**
  * HexColor - Proof of Concept
  *
@@ -150,6 +153,18 @@ public class HexColor {
         // X - convert to hex
 
         this.hexValue = String.format("#%02X%02X%02X", red, green, blue);
+
+    }
+
+    /*
+     * Main method ---------------------------------------------------
+     */
+
+    /**
+     * Demonstrates basic functions.
+     */
+    public static void main(String[] args) {
+        SimpleWriter console = new SimpleWriter1L();
 
     }
 
