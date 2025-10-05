@@ -65,6 +65,8 @@ public class HexColor {
      * @replaces this.hexValue
      */
     public void setHexValue(String hex) {
+        assert hex != null : "Violation of: hex is not null.";
+
         // There is a requires clause
         this.hexValue = hex.toUpperCase();
     }
@@ -77,6 +79,8 @@ public class HexColor {
      * @return true if this.hexValue == hex
      */
     public boolean equals(String hex) {
+        assert hex != null : "Violation of: hex is not null.";
+
         return this.hexValue.equals(hex.toUpperCase());
     }
 
@@ -92,8 +96,9 @@ public class HexColor {
      * @return true if format is valid, false otherwise
      */
     public boolean isValidHex(String hex) {
+        assert hex != null : "Violation of: hex is not null.";
 
-        return false;
+        return false; // added only to compile rn
     }
 
 }
