@@ -1,3 +1,5 @@
+import components.simplereader.SimpleReader;
+import components.simplereader.SimpleReader1L;
 import components.simplewriter.SimpleWriter;
 import components.simplewriter.SimpleWriter1L;
 
@@ -164,7 +166,48 @@ public class HexColor {
      * Demonstrates basic functions.
      */
     public static void main(String[] args) {
-        SimpleWriter console = new SimpleWriter1L();
+        SimpleReader in = new SimpleReader1L();
+        SimpleWriter out = new SimpleWriter1L();
+
+        out.println("HexColor Component Proof of Concept");
+
+        // Create colors from hex codes: constructor
+
+        HexColor one = new HexColor("#6395EE");
+        out.println("Color one: " + one);
+
+        HexColor two = new HexColor("#FFD1DC");
+        out.println("Color one: " + two);
+
+        // Extracting RGB components:
+
+        out.println("Red for color one: " + one.getRed());
+        out.println("Red for color two: " + two.getRed());
+
+        out.println("Green for color one: " + one.getGreen());
+        out.println("Green for color two: " + two.getGreen());
+
+        out.println("Blue for color one: " + one.getBlue());
+        out.println("Blue for color two: " + two.getBlue());
+
+        // Creating colors from RGB values
+
+        HexColor three = new HexColor();
+        out.println("Give me a red RGB value (int from 0-255): ");
+        int red = in.nextInteger();
+        out.println("Give me a green RGB value (int from 0-255): ");
+        int green = in.nextInteger();
+        out.println("Give me a blue RGB value (int from 0-255): ");
+        int blue = in.nextInteger();
+        three.setRGB(red, green, blue);
+
+        out.println("Here's your custom hex code!" + three);
+
+        // Using constants
+        HexColor black = new HexColor(HexColor.BLACK);
+        HexColor white = new HexColor(HexColor.WHITE);
+        out.println("Black: " + black);
+        out.println("White: " + white);
 
     }
 
