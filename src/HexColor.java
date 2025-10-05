@@ -9,7 +9,7 @@
 public class HexColor {
 
     /*
-     * Private members --------------------------
+     * Private members ---------------------------------------------------
      */
 
     // Representation of {@code this}
@@ -19,9 +19,10 @@ public class HexColor {
     private static final String DEFAULT_COLOR = "#000000";
     private static final String BLACK = "#000000";
     private static final String WHITE = "#FFFFFF";
+    private static final String FORMAT = "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$";
 
     /*
-     * Constructors --------------------------
+     * Constructors ---------------------------------------------------
      */
 
     /**
@@ -44,7 +45,7 @@ public class HexColor {
     }
 
     /*
-     * Kernel Methods --------------------------
+     * Kernel Methods ---------------------------------------------------
      */
 
     /**
@@ -85,8 +86,38 @@ public class HexColor {
     }
 
     /*
-     * Secondary Methods --------------------------
+     * Secondary Methods ---------------------------------------------------
      */
+
+    /**
+     * Extract red component.
+     *
+     * @return red value as a string
+     */
+    public String getRed() {
+        String redHex = this.hexValue.substring(1, 3);
+        return redHex;
+    }
+
+    /**
+     * Extract green component.
+     *
+     * @return green value as a string
+     */
+    public String getGreen() {
+        String greenHex = this.hexValue.substring(3, 5);
+        return greenHex;
+    }
+
+    /**
+     * Extract green component.
+     *
+     * @return green value as a string
+     */
+    public String getBlue() {
+        String blueHex = this.hexValue.substring(5, 7);
+        return blueHex;
+    }
 
     /**
      * Check to make sure hex code format is correct.
@@ -99,6 +130,27 @@ public class HexColor {
         assert hex != null : "Violation of: hex is not null.";
 
         return false; // added only to compile rn
+        // Not sure how I should check format yet
+    }
+
+    /**
+     * Sets hex code from RGB values.
+     *
+     * @param red
+     *            red component (0-255)
+     * @param green
+     *            green component (0-255)
+     * @param blue
+     *            blue component (0-255)
+     *
+     */
+    public void setRGB(int red, int green, int blue) {
+        // %02X three times
+        // % - format specifier, 0 - pad with zeros if needed, 2 - use two characters
+        // X - convert to hex
+
+        this.hexValue = String.format("#%02X%02X%02X", red, green, blue);
+
     }
 
 }
