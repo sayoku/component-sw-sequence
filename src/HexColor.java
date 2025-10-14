@@ -100,7 +100,6 @@ public interface HexColor extends HexColorKernel {
      * @ensures complement = "#" * (255 - R) * (255 - G) * (255 - B), where R,
      *          G, and B are the corresponding substring of the Hex Color Code
      *          this
-     *
      */
     HexColor complement();
 
@@ -110,9 +109,7 @@ public interface HexColor extends HexColorKernel {
      *
      * @return the string representation of the color
      * @ensures toString = this in uppercase format
-     *
      */
-
     @Override
     String toString();
 
