@@ -36,7 +36,7 @@ public interface HexColorKernel extends Standard<HexColor> {
     String WHITE = "#FFFFFF";
 
     /*
-     * Constructors ---------------------------------------------------
+     * Constructors?? ---------------------------------------------------
      */
 
     /**
