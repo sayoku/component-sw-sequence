@@ -5,9 +5,25 @@ import components.standard.Standard;
 /**
  * HexColor kernel component with primary methods. All references are non-null.
  *
- * HexColor codes should be expressed as a String starting with # and ending
- * withh 6 hexadecimal digits.
+ * @mathsubtypes <pre>
+ * HEXSTRING h is a string of characters
+ *     constraint:
+ *     |h| = 7 and h[0] = '#' and for all i, 1 <= i <= 7
+ *        h[i] is in set {'0','1','2','3','4','5','6','7','8','9',
+ *                 'A','B','C','D','E','F','a','b','c','d','e','f'}
+ * </pre>
  *
+ * @mathmodel type HexColorKernel is modeled by HEXSTRING
+ * @initially <pre>
+ * ():
+ *  ensures
+ *      this = "#000000"
+ * (String hexValue):
+ *      requires
+ *       there exists hexValue in HEXSTRING
+ *      ensures
+ *       this = hexValue
+ * </pre>
  */
 public interface HexColorKernel extends Standard<HexColor> {
 
