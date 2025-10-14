@@ -36,6 +36,26 @@ public interface HexColorKernel extends Standard<HexColor> {
     String WHITE = "#FFFFFF";
 
     /*
+     * Constructors ---------------------------------------------------
+     */
+
+    /**
+     * Default constructor (no argument - black).
+     *
+     * @ensures placehodler
+     */
+    void HexColor();
+
+    /**
+     * Constructor from {@code String}.
+     *
+     * @param hex
+     *            {@code String} hex to initialize to
+     * @ensures placehodler
+     */
+    void HexColor(String hex);
+
+    /*
      * Kernel Methods ---------------------------------------------------
      */
 
