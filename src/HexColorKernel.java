@@ -1,5 +1,3 @@
-//package components.HexColor; ??
-
 import components.standard.Standard;
 
 /**
@@ -36,13 +34,6 @@ public interface HexColorKernel extends Standard<HexColor> {
      * While Color Constant.
      */
     String WHITE = "#FFFFFF";
-
-    /**
-     * Regular format for validating Hex Color Code. Accepts 6-digit and 3-digit
-     * formats. I am not sure if this should be in the kernel or the
-     * implementation!!
-     */
-    String FORMAT = "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$";
 
     /*
      * Kernel Methods ---------------------------------------------------

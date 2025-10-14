@@ -1,5 +1,3 @@
-// package components.HexColor; ?
-
 /**
  * {@code HexColorKernel} enhanced with secondary methods.
  */
@@ -7,8 +5,7 @@ public interface HexColor extends HexColorKernel {
 
     /**
      * Regular format for validating Hex Color Code. Accepts 6-digit and 3-digit
-     * formats. I am not sure if this should be in the kernel or the
-     * implementation!!
+     * formats.
      */
     String FORMAT_HEX = "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$";
 
