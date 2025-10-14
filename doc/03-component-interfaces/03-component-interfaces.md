@@ -130,7 +130,7 @@ hierarchy diagram using whatever tools you would like. Then, include a picture
 of it in this folder. You may also embed it just below using markdown syntax
 (i.e., `![ALT TEXT](path/to/file)`).
 
-![ALT TEXT](/Users/annah/Coding/component-sw-sequence/doc/03-component-interfaces/IMG_7874.jpg)
+![ALT TEXT](/Users/annah/Coding/component-sw-sequence/doc/03-component-interfaces/IMG_7875.jpg)
 
 To start making your interfaces, make a branch off of main in your new repo
 called something like `interfaces`. There are many ways to do this, but my

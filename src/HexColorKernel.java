@@ -1,3 +1,5 @@
+//package components.HexColor; ??
+
 import components.standard.Standard;
 
 /**
@@ -10,11 +12,20 @@ import components.standard.Standard;
 public interface HexColorKernel extends Standard<HexColor> {
 
     /**
-     * Constants (default colors, black, white).
+     * Default Color Constant (black).
      */
     String DEFAULT_COLOR = "#000000";
-    String BLACK = "#000000";
+
+    /**
+     * While Color Constant.
+     */
     String WHITE = "#FFFFFF";
+
+    /**
+     * Regular format for validating Hex Color Code. Accepts 6-digit and 3-digit
+     * formats. I am not sure if this should be in the kernel or the
+     * implementation!!
+     */
     String FORMAT = "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$";
 
     /*
@@ -22,32 +33,32 @@ public interface HexColorKernel extends Standard<HexColor> {
      */
 
     /**
-     * Reutrns the hex value as a string.
+     * Returns the hex value as a string.
      *
-     * @ensures this = #this.hexValue
      * @return the hex color code
+     * @ensures getHexValue = this
      */
     String getHexValue();
 
     /**
-     * Sets the hex value to match the argument.
+     * Sets the hex value to match the given hex string.
      *
-     * @param hex
-     *            the new hex value to set as
-     * @requires isValidHex(this.hexValue) == true
-     * @replaces this.hexValue
-     * @ensures this.hexValue = hex
+     * @param hexValue
+     *            the new hex color code
+     * @requires isValidHex is a valid hex color string
+     * @replaces this
+     * @ensures this = hexValue
      */
-    void setHexValue(String hex);
+    void setHexValue(String hexValue);
 
     /**
      * Checks whether the two hex values are the same.
      *
-     * @param hex
-     *            the hex string to compare
-     * @return true if this.hexValue == hex
-     * @ensures hexEquals = (#this == hex )
+     * @param hexValue
+     *            the hex color code to compare
+     * @return true iff this equals hexValue
+     * @ensures hexEquals = ( this == hexValue )
      */
-    boolean hexEquals(String hex);
+    boolean hexEquals(String hexValue);
 
 }
