@@ -1,142 +1,37 @@
-import components.simplereader.SimpleReader;
-import components.simplereader.SimpleReader1L;
-import components.simplewriter.SimpleWriter;
-import components.simplewriter.SimpleWriter1L;
-
 /**
- * HexColor - Proof of Concept
- *
- * Minimum Viable Product (MVP) for a component representing hexadecimal color
- * values. Demonstrates feasibility by implementing a variety of kernel and
- * secondary methods.
+ * {@code HexColorKernel} enhanced with secondary methods.
  */
-
-public class HexColor {
-
-    /*
-     * Private members ---------------------------------------------------
-     */
-
-    // Representation of {@code this}
-    private String hexValue;
-
-    // Constants (default colors, black, white)
-    private static final String DEFAULT_COLOR = "#000000";
-    private static final String BLACK = "#000000";
-    private static final String WHITE = "#FFFFFF";
-    private static final String FORMAT = "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$";
-
-    /*
-     * Constructors ---------------------------------------------------
-     */
+public interface HexColor extends HexColorKernel {
 
     /**
-     * Default constructor (no argument - black).
+     * Regular format for validating Hex Color Code. Accepts 6-digit and 3-digit
+     * formats.
      */
-    public HexColor() {
-        this.hexValue = DEFAULT_COLOR;
-    }
-
-    /**
-     * Constructor from {@code String}.
-     *
-     * @param hex
-     *            {@code String} hex to initialize to
-     */
-    public HexColor(String hex) {
-        if (this.isValidHex(hex)) {
-            this.hexValue = hex.toUpperCase();
-        }
-    }
-
-    /*
-     * Kernel Methods ---------------------------------------------------
-     */
-
-    /**
-     * Reutrns the hex value as a string.
-     *
-     * @return the hex color code
-     */
-    public String getHexValue() {
-        return this.hexValue;
-    }
-
-    /**
-     * Sets the hex value to match the arugment.
-     *
-     * @param hex
-     *            the new hex value to set as
-     * @requires isValidHex(this.hexValue) == true
-     * @replaces this.hexValue
-     */
-    public void setHexValue(String hex) {
-        assert hex != null : "Violation of: hex is not null.";
-
-        // There is a requires clause
-        this.hexValue = hex.toUpperCase();
-    }
-
-    /**
-     * Checks whether the two hex values are the same.
-     *
-     * @param hex
-     *            the hex string to compare
-     * @return true if this.hexValue == hex
-     */
-    public boolean equals(String hex) {
-        assert hex != null : "Violation of: hex is not null.";
-
-        return this.hexValue.equals(hex.toUpperCase());
-    }
-
-    /*
-     * Secondary Methods ---------------------------------------------------
-     */
+    String FORMAT_HEX = "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$";
 
     /**
      * Extract red component.
      *
      * @return red value as a string
+     * @ensures getRed = this.substring[1, 2] where this = "#RRGGBB"
      */
-    public String getRed() {
-        String redHex = this.hexValue.substring(1, 3);
-        return redHex;
-    }
+    String getRed();
 
     /**
      * Extract green component.
      *
      * @return green value as a string
+     * @ensures getGreen = this.substring[3, 4] where this = "#RRGGBB"
      */
-    public String getGreen() {
-        String greenHex = this.hexValue.substring(3, 5);
-        return greenHex;
-    }
+    String getGreen();
 
     /**
      * Extract green component.
      *
      * @return green value as a string
+     * @ensures getGreen = this.substring[5, 6] where this = "#RRGGBB"
      */
-    public String getBlue() {
-        String blueHex = this.hexValue.substring(5, 7);
-        return blueHex;
-    }
-
-    /**
-     * Check to make sure hex code format is correct.
-     *
-     * @param hex
-     *            the hex value to check
-     * @return true if format is valid, false otherwise
-     */
-    public boolean isValidHex(String hex) {
-        assert hex != null : "Violation of: hex is not null.";
-
-        return true; // added only to compile rn
-        // Not sure how I should check format yet
-    }
+    String getBlue();
 
     /**
      * Sets hex code from RGB values.
@@ -147,73 +42,75 @@ public class HexColor {
      *            green component (0-255)
      * @param blue
      *            blue component (0-255)
-     *
+     * @replaces this
+     * @requires 0 <= red <= 255 and 0 <= green <= 255 and 0 <= blue <= 255.
+     * @ensures this is "#" * the 2-digit hexadecimal representations of red,
+     *          blue, and green
      */
-    public void setRGB(int red, int green, int blue) {
-        // %02X three times
-        // % - format specifier, 0 - pad with zeros if needed, 2 - use two characters
-        // X - convert to hex
-
-        this.hexValue = String.format("#%02X%02X%02X", red, green, blue);
-
-    }
-
-    @Override
-    public String toString() {
-        return this.hexValue;
-    }
-
-    /*
-     * Main method ---------------------------------------------------
-     */
+    void setRGB(int red, int green, int blue);
 
     /**
-     * Demonstrates basic functions.
+     * Checks whether a given hex color code fits the valid format.
+     *
+     * @param hexValue
+     *            the hex value to check
+     * @return true iff format is a valid hex color code, false otherwise
+     * @ensures isValidHex matches the format specified by FORMAT_HEX
      */
-    public static void main(String[] args) {
-        SimpleReader in = new SimpleReader1L();
-        SimpleWriter out = new SimpleWriter1L();
+    boolean isValidHex(String hexValue);
 
-        out.println("HexColor Component Proof of Concept");
+    /**
+     * Returns a lighter version of this.
+     *
+     * @param factor
+     *            the lightening factor 0.0 to 1.0
+     * @return a lighter color
+     * @requires 0.0 <= factor <= 1.0
+     * @ensures lighten is a valid hex color code where each component is moved
+     *          towards 255 by factor
+     */
+    HexColor lighten(double factor);
 
-        // Create colors from hex codes: constructor
+    /**
+     * Returns a darker version of this.
+     *
+     * @param factor
+     *            the darkening factor 0.0 to 1.0
+     * @return a darker color
+     * @requires 0.0 <= factor <= 1.0
+     * @ensures darker is a valid hex color code where each component is moved
+     *          towards 0 by factor
+     */
+    HexColor darken(double factor);
 
-        HexColor one = new HexColor("#6395EE");
-        out.println("Color one: " + one);
+    /**
+     * Returns the luminance of this.
+     *
+     * @return the luminance of the color
+     * @ensures luminance = (0.2126 * R) + (0.7152 * G) + (0.0722 * B) where R,
+     *          G, and B are the corresponding substring of the Hex Color Code
+     *          this
+     */
+    double getLuminance();
 
-        HexColor two = new HexColor("#FFD1DC");
-        out.println("Color two: " + two);
+    /**
+     * Returns the complementary color of this (opposite on the color wheel).
+     *
+     * @return the complement of the color
+     * @ensures complement = "#" * (255 - R) * (255 - G) * (255 - B), where R,
+     *          G, and B are the corresponding substring of the Hex Color Code
+     *          this
+     */
+    HexColor complement();
 
-        // Extracting RGB components:
-
-        out.println("Red for color one: " + one.getRed());
-        out.println("Red for color two: " + two.getRed());
-
-        out.println("Green for color one: " + one.getGreen());
-        out.println("Green for color two: " + two.getGreen());
-
-        out.println("Blue for color one: " + one.getBlue());
-        out.println("Blue for color two: " + two.getBlue());
-
-        // Creating colors from RGB values
-
-        HexColor three = new HexColor();
-        out.println("Give me a red RGB value (int from 0-255): ");
-        int red = in.nextInteger();
-        out.println("Give me a green RGB value (int from 0-255): ");
-        int green = in.nextInteger();
-        out.println("Give me a blue RGB value (int from 0-255): ");
-        int blue = in.nextInteger();
-        three.setRGB(red, green, blue);
-
-        out.println("Here's your custom hex code!" + three);
-
-        // Using constants
-        HexColor black = new HexColor(HexColor.BLACK);
-        HexColor white = new HexColor(HexColor.WHITE);
-        out.println("Black: " + black);
-        out.println("White: " + white);
-
-    }
+    /**
+     * Returns a string representation of the hex color in standard format
+     * "#RRGGBB".
+     *
+     * @return the string representation of the color
+     * @ensures toString = this in uppercase format
+     */
+    @Override
+    String toString();
 
 }
