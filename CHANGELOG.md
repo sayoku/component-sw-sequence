@@ -14,7 +14,7 @@ the following form: YYYY.0M.0D.
 - Designed a HexColor component
 - Designed a Door component
 
-## [2050.10.06]
+## [2025.10.06]
 
 ### Added
 
@@ -24,3 +24,13 @@ the following form: YYYY.0M.0D.
 ### Updated
 
 - Changed design to include overidden toString.
+
+## [2025.10.14]
+
+### Added
+
+- Designed kernel and enhanced interfaces for HexColor component
+
+### Updated
+
+- Changed design to remove uncessary constant, made sure format representations were consistent thus far (going by 6-digit hex codes).
