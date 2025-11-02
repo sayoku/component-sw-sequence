@@ -29,7 +29,7 @@ public abstract class HexColorSecondary implements HexColor {
     public String getRed() {
 
         String value = this.getHexValue();
-        String result = value.substring(1, 2);
+        String result = value.substring(1, 3);
 
         return result;
 
@@ -40,7 +40,7 @@ public abstract class HexColorSecondary implements HexColor {
     public String getGreen() {
 
         String value = this.getHexValue();
-        String result = value.substring(3, 4);
+        String result = value.substring(3, 5);
 
         return result;
     }
@@ -50,7 +50,7 @@ public abstract class HexColorSecondary implements HexColor {
     public String getBlue() {
 
         String value = this.getHexValue();
-        String result = value.substring(5, 6);
+        String result = value.substring(5, 7);
 
         return result;
 
