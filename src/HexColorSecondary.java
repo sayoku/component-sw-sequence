@@ -82,14 +82,46 @@ public abstract class HexColorSecondary implements HexColor {
     // CHECKSTYLE: ALLOW THIS METHOD TO BE OVERRIDDEN
     @Override
     public HexColor lighten(double factor) {
-        return null;
+
+        int R = Integer.decode("0x" + this.getRed());
+        int G = Integer.decode("0x" + this.getGreen());
+        int B = Integer.decode("0x" + this.getBlue());
+
+        // Move each component closer to 255
+        // (255 - R) is the distance from red val to white
+        // Multiply that distance by factor to move a fraction of that distance
+        // Add how much you move to R
+
+        int lightRed = (int) (R + (255 - R) * factor);
+        int lightGreen = (int) (G + (255 - G) * factor);
+        int lightBlue = (int) (B + (255 - B) * factor);
+
+        HexColor result = this.newInstance();
+        result.setRGB(lightRed, lightGreen, lightBlue);
+
+        return result;
 
     }
 
     // CHECKSTYLE: ALLOW THIS METHOD TO BE OVERRIDDEN
     @Override
     public HexColor darken(double factor) {
-        return null;
+        int R = Integer.decode("0x" + this.getRed());
+        int G = Integer.decode("0x" + this.getGreen());
+        int B = Integer.decode("0x" + this.getBlue());
+
+        // Move each component closer to 0
+        // R is the distance to 0 (black)
+        // 1 - factor: keep this portion of the orignal
+
+        int darkRed = (int) (R * (1 - factor));
+        int darkGreen = (int) (G * (1 - factor));
+        int darkBlue = (int) (B * (1 - factor));
+
+        HexColor result = this.newInstance();
+        result.setRGB(darkRed, darkGreen, darkBlue);
+
+        return result;
 
     }
 
@@ -110,8 +142,6 @@ public abstract class HexColorSecondary implements HexColor {
     // CHECKSTYLE: ALLOW THIS METHOD TO BE OVERRIDDEN
     @Override
     public HexColor complement() {
-
-        String hexString = this.getHexValue();
 
         int R = Integer.decode("0x" + this.getRed());
         int G = Integer.decode("0x" + this.getGreen());
