@@ -16,7 +16,7 @@ public abstract class HexColorSecondary implements HexColor {
     @Override
     public String toString() {
 
-        return null;
+        return this.getHexValue();
 
     }
 
@@ -29,9 +29,9 @@ public abstract class HexColorSecondary implements HexColor {
     public String getRed() {
 
         String value = this.getHexValue();
-        value.substring(1, 2);
+        String result = value.substring(1, 2);
 
-        return value;
+        return result;
 
     }
 
@@ -40,9 +40,9 @@ public abstract class HexColorSecondary implements HexColor {
     public String getGreen() {
 
         String value = this.getHexValue();
-        value.substring(3, 4);
+        String result = value.substring(3, 4);
 
-        return value;
+        return result;
     }
 
     // CHECKSTYLE: ALLOW THIS METHOD TO BE OVERRIDDEN
@@ -50,9 +50,9 @@ public abstract class HexColorSecondary implements HexColor {
     public String getBlue() {
 
         String value = this.getHexValue();
-        value.substring(5, 6);
+        String result = value.substring(5, 6);
 
-        return value;
+        return result;
 
     }
 
@@ -60,13 +60,7 @@ public abstract class HexColorSecondary implements HexColor {
     @Override
     public void setRGB(int red, int green, int blue) {
 
-        String hexString = "#";
-        String redString = Integer.toHexString(red);
-        String greenString = Integer.toHexString(green);
-        String blueString = Integer.toHexString(blue);
-
-        hexString += redString + greenString + blueString;
-
+        String hexString = String.format("#%02X%02X%02X", red, green, blue);
         this.setHexValue(hexString);
 
     }
@@ -75,7 +69,26 @@ public abstract class HexColorSecondary implements HexColor {
     @Override
     public boolean isValidHex(String hexValue) {
 
-        return true;
+        boolean result = true;
+
+        // Checking length, not null, and for '#'
+
+        if (hexValue == null || hexValue.length() != 7
+                || hexValue.charAt(0) != '#') {
+            result = false;
+        }
+
+        // check the last 6 digits to be valid hexadecimal digits
+
+        int i = 1;
+        while (result && i < 7) {
+            char pull = hexValue.charAt(i);
+            char c = Character.toUpperCase(pull);
+            result = (c >= '0' && c <= '9' || (c >= 'A' && c <= 'F'));
+            i++;
+        }
+
+        return result;
 
     }
 
