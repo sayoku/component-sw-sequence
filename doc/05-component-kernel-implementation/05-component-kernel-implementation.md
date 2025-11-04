@@ -120,7 +120,7 @@ Below is further rationale/explanation for the rubric items above:
 > discuss how that representation will be restricted (i.e., by convention)
 > and interpreted (i.e., by correspondence).
 
-<!-- TODO: select a representation and explain why -->
+I'm picking a String representation. Not only are hex color codes strings, String and substring provide easy format checking and extraction for getRed, getGreen, etc and getHexValue. I have already been thinking about HexColor as a string representation, which also influences my decision. I could also probably attempt a tree representation, but that doesn't seem like the most obvious (or smartest) choice.
 
 > To start making your kernel implementation, make a branch off of main in your
 > new repo called something like `kernel-implementation`. There are many ways to
