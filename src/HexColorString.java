@@ -69,19 +69,8 @@ public class HexColorString extends HexColorSecondary {
         assert this.isValidHex(hexValue) : ""
                 + "Violation of: hexValue is a valid hex color code";
 
+        // Take the string and upper-case it
         this.rep = hexValue.toUpperCase();
-    }
-
-    /**
-     * Constructor from {@code HexColor}.
-     *
-     * @param color
-     *            {@code HexColor} to initialize from
-     */
-    public HexColorString(HexColor color) {
-        assert color != null : "Violation of: color is not null";
-
-        this.rep = color.getHexValue();
     }
 
     /*
@@ -92,6 +81,8 @@ public class HexColorString extends HexColorSecondary {
 
     @Override
     public final HexColor newInstance() {
+
+        // Adapted from NaturalNumber1L
         try {
             return this.getClass().getConstructor().newInstance();
         } catch (ReflectiveOperationException e) {
@@ -102,6 +93,8 @@ public class HexColorString extends HexColorSecondary {
 
     @Override
     public final void clear() {
+
+        // New representation!
         this.createNewRep();
     }
 
@@ -112,6 +105,7 @@ public class HexColorString extends HexColorSecondary {
         assert source instanceof HexColorString : ""
                 + "Violation of: source is of dynamic type HexColorString";
 
+        // Also adapted from NaturalNumber1L
         HexColorString localSource = (HexColorString) source;
         this.rep = localSource.rep;
         localSource.createNewRep();
@@ -123,6 +117,8 @@ public class HexColorString extends HexColorSecondary {
 
     @Override
     public final String getHexValue() {
+
+        // return the hexValue
         return this.rep;
     }
 
@@ -132,6 +128,7 @@ public class HexColorString extends HexColorSecondary {
         assert this.isValidHex(hexValue) : ""
                 + "Violation of: hexValue is a valid hex color code";
 
+        // take the string, upper case it, and set
         this.rep = hexValue.toUpperCase();
     }
 
@@ -139,6 +136,7 @@ public class HexColorString extends HexColorSecondary {
     public final boolean hexEquals(String hexValue) {
         assert hexValue != null : "Violation of: hexValue is not null";
 
+        // return .equals (checking for String equality), upper-case input in case
         return this.rep.equals(hexValue.toUpperCase());
     }
 
