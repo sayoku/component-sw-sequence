@@ -13,7 +13,7 @@ public interface HexColor extends HexColorKernel {
      * Extract red component.
      *
      * @return red value as a string
-     * @ensures getRed = this.substring[1, 3] where this = "#RRGGBB"
+     * @ensures getRed = this.substring[1, 2] where this = "#RRGGBB"
      */
     String getRed();
 
@@ -21,7 +21,7 @@ public interface HexColor extends HexColorKernel {
      * Extract green component.
      *
      * @return green value as a string
-     * @ensures getGreen = this.substring[3, 5] where this = "#RRGGBB"
+     * @ensures getGreen = this.substring[3, 4] where this = "#RRGGBB"
      */
     String getGreen();
 
@@ -29,7 +29,7 @@ public interface HexColor extends HexColorKernel {
      * Extract green component.
      *
      * @return green value as a string
-     * @ensures getGreen = this.substring[5, 7] where this = "#RRGGBB"
+     * @ensures getGreen = this.substring[5, 6] where this = "#RRGGBB"
      */
     String getBlue();
 
