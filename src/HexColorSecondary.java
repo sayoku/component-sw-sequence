@@ -20,6 +20,36 @@ public abstract class HexColorSecondary implements HexColor {
 
     }
 
+    // CHECKSTYLE: ALLOW THIS METHOD TO BE OVERRIDDEN
+    @Override
+    public boolean equals(Object o) {
+
+        if (this == o) {
+            return true;
+        }
+        if (o == null) {
+            return false;
+        }
+
+        if (!(o instanceOf HexColor<?>)) {
+            return false;
+        }
+
+        HexColor<?> h = (HexColor<?>) o;
+
+
+
+        return true;
+    }
+
+    // CHECKSTYLE: ALLOW THIS METHOD TO BE OVERRIDDEN
+    @Override
+    public int hashCode() {
+
+        return 0;
+
+    }
+
     /*
      * Other non-kernel methods -----------------------------------------------
      */
