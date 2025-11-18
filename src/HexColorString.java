@@ -119,7 +119,7 @@ public class HexColorString extends HexColorSecondary {
     public final String getHexValue() {
 
         // return the hexValue
-        return this.rep;
+        return this.rep.toUpperCase();
     }
 
     @Override
@@ -129,7 +129,7 @@ public class HexColorString extends HexColorSecondary {
                 + "Violation of: hexValue is a valid hex color code";
 
         // take the string, upper case it, and set
-        this.rep = hexValue.toUpperCase();
+        this.rep = hexValue;
     }
 
     @Override
@@ -137,7 +137,7 @@ public class HexColorString extends HexColorSecondary {
         assert hexValue != null : "Violation of: hexValue is not null";
 
         // return .equals (checking for String equality), upper-case input in case
-        return this.rep.equals(hexValue.toUpperCase());
+        return this.rep.equals(hexValue);
     }
 
 }
