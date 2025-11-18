@@ -31,22 +31,20 @@ public abstract class HexColorSecondary implements HexColor {
             return false;
         }
 
-        if (!(o instanceOf HexColor<?>)) {
+        if (!(o instanceof HexColor)) {
             return false;
         }
 
-        HexColor<?> h = (HexColor<?>) o;
-
-
-
-        return true;
+        // THIS IS STRING EQUALS!!!
+        HexColor h = (HexColor) o;
+        return this.getHexValue().equals(h.getHexValue());
     }
 
     // CHECKSTYLE: ALLOW THIS METHOD TO BE OVERRIDDEN
     @Override
     public int hashCode() {
-
-        return 0;
+        // Note: I'm using STRING hashCode
+        return this.getHexValue().hashCode();
 
     }
 
