@@ -156,11 +156,6 @@ public class HexColorProofOfConcept {
 
     }
 
-    @Override
-    public String toString() {
-        return this.hexValue;
-    }
-
     /*
      * Main method ---------------------------------------------------
      */
