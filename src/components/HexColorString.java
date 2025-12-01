@@ -1,4 +1,5 @@
 package components;
+
 /**
  * HexColor kernel component with primary methods. All references are non-null.
  *
@@ -130,7 +131,7 @@ public class HexColorString extends HexColorSecondary {
                 + "Violation of: hexValue is a valid hex color code";
 
         // take the string, upper case it, and set
-        this.rep = hexValue;
+        this.rep = hexValue.toUpperCase();
     }
 
     @Override
@@ -138,7 +139,7 @@ public class HexColorString extends HexColorSecondary {
         assert hexValue != null : "Violation of: hexValue is not null";
 
         // return .equals (checking for String equality), upper-case input in case
-        return this.rep.equals(hexValue);
+        return this.rep.equals(hexValue.toUpperCase());
     }
 
 }

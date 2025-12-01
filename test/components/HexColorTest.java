@@ -295,10 +295,10 @@ public abstract class HexColorTest {
 
     @Test
     public final void testLightenRedHalfway() {
-        HexColor h = this.constructorTest("#800000");
+        HexColor h = this.constructorTest("#FF0000");
         HexColor lighter = h.lighten(0.5);
-        assertEquals("#BF0000", lighter.getHexValue());
-        assertEquals("#800000", h.getHexValue());
+        assertEquals("#FF7F7F", lighter.getHexValue());
+        assertEquals("#FF0000", h.getHexValue());
     }
 
     @Test
@@ -393,7 +393,7 @@ public abstract class HexColorTest {
         HexColor h = this.constructorTest("#0000FF");
         double expected = 0.0722 * 255;
         assertEquals(expected, h.getLuminance(), 0.01);
-        assertEquals("#00", h.getHexValue());
+        assertEquals("#0000FF", h.getHexValue());
     }
 
     /*
