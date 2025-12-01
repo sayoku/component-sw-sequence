@@ -125,18 +125,18 @@ public abstract class HexColorSecondary implements HexColor {
     @Override
     public HexColor lighten(double factor) {
 
-        int R = Integer.decode("0x" + this.getRed());
-        int G = Integer.decode("0x" + this.getGreen());
-        int B = Integer.decode("0x" + this.getBlue());
+        int redInt = Integer.decode("0x" + this.getRed());
+        int greenInt = Integer.decode("0x" + this.getGreen());
+        int blueInt = Integer.decode("0x" + this.getBlue());
 
         // Move each component closer to 255
         // (255 - R) is the distance from red val to white
         // Multiply that distance by factor to move a fraction of that distance
         // Add how much you move to R
 
-        int lightRed = (int) (R + (255 - R) * factor);
-        int lightGreen = (int) (G + (255 - G) * factor);
-        int lightBlue = (int) (B + (255 - B) * factor);
+        int lightRed = (int) (redInt + (255 - redInt) * factor);
+        int lightGreen = (int) (greenInt + (255 - greenInt) * factor);
+        int lightBlue = (int) (blueInt + (255 - blueInt) * factor);
 
         HexColor result = this.newInstance();
         result.setRGB(lightRed, lightGreen, lightBlue);
@@ -148,17 +148,17 @@ public abstract class HexColorSecondary implements HexColor {
     // CHECKSTYLE: ALLOW THIS METHOD TO BE OVERRIDDEN
     @Override
     public HexColor darken(double factor) {
-        int R = Integer.decode("0x" + this.getRed());
-        int G = Integer.decode("0x" + this.getGreen());
-        int B = Integer.decode("0x" + this.getBlue());
+        int redInt = Integer.decode("0x" + this.getRed());
+        int greenInt = Integer.decode("0x" + this.getGreen());
+        int blueInt = Integer.decode("0x" + this.getBlue());
 
         // Move each component closer to 0
         // R is the distance to 0 (black)
         // 1 - factor: keep this portion of the orignal
 
-        int darkRed = (int) (R * (1 - factor));
-        int darkGreen = (int) (G * (1 - factor));
-        int darkBlue = (int) (B * (1 - factor));
+        int darkRed = (int) (redInt * (1 - factor));
+        int darkGreen = (int) (greenInt * (1 - factor));
+        int darkBlue = (int) (blueInt * (1 - factor));
 
         HexColor result = this.newInstance();
         result.setRGB(darkRed, darkGreen, darkBlue);
@@ -171,11 +171,12 @@ public abstract class HexColorSecondary implements HexColor {
     @Override
     public double getLuminance() {
 
-        int R = Integer.decode("0x" + this.getRed());
-        int G = Integer.decode("0x" + this.getGreen());
-        int B = Integer.decode("0x" + this.getBlue());
+        int redInt = Integer.decode("0x" + this.getRed());
+        int greenInt = Integer.decode("0x" + this.getGreen());
+        int blueInt = Integer.decode("0x" + this.getBlue());
 
-        double lumi = ((0.2126 * R) + (0.7152 * G) + (0.0722 * B)) / 255;
+        double lumi = (0.2126 * redInt) + (0.7152 * greenInt)
+                + (0.0722 * blueInt);
 
         return lumi;
 
@@ -185,16 +186,16 @@ public abstract class HexColorSecondary implements HexColor {
     @Override
     public HexColor complement() {
 
-        int R = Integer.decode("0x" + this.getRed());
-        int G = Integer.decode("0x" + this.getGreen());
-        int B = Integer.decode("0x" + this.getBlue());
+        int redInt = Integer.decode("0x" + this.getRed());
+        int greenInt = Integer.decode("0x" + this.getGreen());
+        int blueInt = Integer.decode("0x" + this.getBlue());
 
-        int cR = 255 - R;
-        int cG = 255 - G;
-        int cB = 255 - B;
+        int compRed = 255 - redInt;
+        int compGreen = 255 - greenInt;
+        int compBlue = 255 - blueInt;
 
         HexColor result = this.newInstance();
-        result.setRGB(cR, cG, cB);
+        result.setRGB(compRed, compGreen, compBlue);
 
         return result;
 
