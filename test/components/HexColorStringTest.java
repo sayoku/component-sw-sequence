@@ -1,13 +1,19 @@
 package components;
+
+//import static org.junit.Assert.assertEquals;
+
 //import org.junit.Test;
 
-//import org.junit.Assert.assertEquals;
-
 /**
- * JUnit test fixture for {@code HexColor}'s kernel and constructor methods.
+ * Customized JUnit test fixture for {@code HexColorString}.
  *
  * @author Anna Huang
  */
-public class HexColorStringTest {
+public class HexColorStringTest extends HexColorTest {
+
+    @Override
+    protected final HexColor constructorTest() {
+        return new HexColorString();
+    }
 
 }
