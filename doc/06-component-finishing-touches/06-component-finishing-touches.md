@@ -322,25 +322,30 @@ I stand by my previous statements of enjoying testing. Testing, I find, is somet
 > this process. Therefore, the first question is what skills did you pick up
 > through this process?
 
-<!-- TODO: discuss -->
+Through this process and the software sequence, I designed a test plan for the component, provided example use cases for a tool that I created, learned and used version control software (github), and learned how to define and follow my predetermined representations. Additionally, I laerned how to carry out implementations of method interfaces and provide contracts for them. I also worked on developing my troubleshooting skills and pattern recognition skills through following examples of other osu cse API's and working through github.
 
 > The follow-up question is: could you rephrase these skills you picked up
 > as bullet points that you could put on a resume? Try it below.
 
-<!-- TODO: discuss -->
+- Designed and implemented JUnit test plans to verify component function across kernel, standard, and secondary methods
+- Developed reusable Java components following object-oriented design with clear interface contracts and abstraction layering
+- Utilized Git and GitHub for version control, including branching, pull requests, and collaborative code review
+- Created technical documentation and use case examples to demonstrate component functionality and API usage
+- Defined and maintained representation invariants and correspondence relationships to ensure code correctness
+- Self-directed learning of software development best practices including testing, version control, and documentation standards
 
 > Next, how has working on this project affected your career trajectory?
 > In other words, do you now hate the topic you picked? Or, are you even more
 > interested in it? Both outcomes are valuable to your personal development.
 
-<!-- TODO: discuss -->
+I find that hex color codes are a lot simpler than I first anticipated (I knew little about them) and I do see the use in web app design. I still enjoy the UI/UX side of design, but I may begin to lean towards system design and general software development. During application to the major, I had selected computer graphics as my specialization due to my skill in art and design, as well as my general pickiness for UX. I still find this interesting, but I have since pivoted to a computer systems specialization and find software development as a whole more interesting. If anyting, this project has widened my potential career trajectory.
 
 > Finally, consider the skills you've picked up and your current career
 > trajectory. What are some things you could do to continue on your
 > career trajectory? Also, who are some mentors you could contact to help
 > you stay on your path?
 
-<!-- TODO: discuss -->
+Some things that could further my career are becoming more involved in academic research, working on personal projects that might not be inherently end-user-facing, and consulting faculty based on my interests. My father is an OSU computer science alum and he is now a professor at the University of Tennessee. I am reaching out to his colleagues at OSU currently, but I may also reach out (independently) to colleages at UTK, since it's both close to home and somewhere that would force me out of the OSU CSE department and into different learning environments. Also, through outside student organizations (such as ballroom dance), I have made many connections to other data science, computer science, and engineering undergraduates, graduate students, and alumni who are currently in the field. When deciding my next steps, I will also consult them on how they go to where they are and what made them choose that particular path.
 
 ### Changelog
 
