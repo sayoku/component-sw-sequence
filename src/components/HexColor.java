@@ -105,14 +105,4 @@ public interface HexColor extends HexColorKernel {
      */
     HexColor complement();
 
-    /**
-     * Returns a string representation of the hex color in standard format
-     * "#RRGGBB".
-     *
-     * @return the string representation of the color
-     * @ensures toString = this in uppercase format
-     */
-    @Override
-    String toString();
-
 }

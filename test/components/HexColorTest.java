@@ -66,7 +66,120 @@ public abstract class HexColorTest {
      */
 
     /*
+     * Test cases for getHexValue()
+     */
+
+    @Test
+    public final void testGetHexValueDefault() {
+        HexColor h = this.constructorTest();
+        assertEquals("#000000", h.getHexValue());
+    }
+
+    @Test
+    public final void testGetHexValueRed() {
+        HexColor h = this.constructorTest("#FF0000");
+        assertEquals("#FF0000", h.getHexValue());
+    }
+
+    /*
+     * Test cases for setHexValue()
+     */
+
+    @Test
+    public final void testSetHexValueDefaultToWhite() {
+        HexColor h = this.constructorTest();
+        h.setHexValue("#FFFFFF");
+        assertEquals("#FFFFFF", h.getHexValue());
+    }
+
+    @Test
+    public final void testSetHexValueRedToBlue() {
+        HexColor h = this.constructorTest("#FF0000");
+        h.setHexValue("#0000FF");
+        assertEquals("#0000FF", h.getHexValue());
+    }
+
+    @Test
+    public final void testSetHexValueLowerCase() {
+        HexColor h = this.constructorTest();
+        h.setHexValue("#aabbcc");
+        assertEquals("#AABBCC", h.getHexValue());
+    }
+
+    /*
+     * Test cases for hexEquals()
+     */
+
+    @Test
+    public final void testHexEqualsTrue() {
+        HexColor h = this.constructorTest("#FF0000");
+        assertEquals(true, h.hexEquals("#FF0000"));
+    }
+
+    @Test
+    public final void testHexEqualsFalse() {
+        HexColor h = this.constructorTest("#FF0000");
+        assertEquals(false, h.hexEquals("#00FF00"));
+    }
+
+    @Test
+    public final void testHexEqualsCaseInsensitive() {
+        HexColor h = this.constructorTest("#FF0000");
+        assertEquals(true, h.hexEquals("#ff0000"));
+    }
+
+    @Test
+    public final void testHexEqualsDefault() {
+        HexColor h = this.constructorTest();
+        assertEquals(true, h.hexEquals("#000000"));
+    }
+
+    /*
      * Test cases for secondary methods ----------------------------------------
+     */
+
+    /*
+     * Test cases for
+     */
+
+    /*
+     * Test cases for
+     */
+
+    /*
+     * Test cases for
+     */
+
+    /*
+     * Test cases for
+     */
+
+    /*
+     * Test cases for
+     */
+
+    /*
+     * Test cases for
+     */
+
+    /*
+     * Test cases for
+     */
+
+    /*
+     * Test cases for
+     */
+
+    /*
+     * Test cases for
+     */
+
+    /*
+     * Test cases for
+     */
+
+    /*
+     * Test cases for
      */
 
 }
