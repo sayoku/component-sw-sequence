@@ -89,9 +89,9 @@ public interface HexColor extends HexColorKernel {
      * Returns the luminance of this.
      *
      * @return the luminance of the color
-     * @ensures luminance = (0.2126 * R) + (0.7152 * G) + (0.0722 * B) where R,
-     *          G, and B are the corresponding substring of the Hex Color Code
-     *          this
+     * @ensures luminance = ((0.2126 * R) + (0.7152 * G) + (0.0722 * B)) / 255
+     *          where R, G, and B are the corresponding substring of the Hex
+     *          Color Code this
      */
     double getLuminance();
 

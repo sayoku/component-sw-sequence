@@ -175,7 +175,7 @@ public abstract class HexColorSecondary implements HexColor {
         int G = Integer.decode("0x" + this.getGreen());
         int B = Integer.decode("0x" + this.getBlue());
 
-        double lumi = (0.2126 * R) + (0.7152 * G) + (0.0722 * B);
+        double lumi = ((0.2126 * R) + (0.7152 * G) + (0.0722 * B)) / 255;
 
         return lumi;
 

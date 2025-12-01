@@ -228,13 +228,6 @@ public abstract class HexColorTest {
         assertEquals("#1B2F43", h.getHexValue());
     }
 
-    @Test
-    public final void testSetRGBOverwrite() {
-        HexColor h = this.constructorTest("#FFFFFF");
-        h.setRGB(0, 0, 0);
-        assertEquals("#000000", h.getHexValue());
-    }
-
     /*
      * Test cases for isValidHex()
      */

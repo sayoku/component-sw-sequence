@@ -12,7 +12,8 @@ public class ContrastChecker {
     //WCAG 2.0 level AA requires a contrast ratio of at least 4.5:1 for normal text and 3:1 for large text
     private static final double WCAG_RATIO = 4.5;
 
-    public static boolean isAccessible(HexColor text, HexColor background) {
+    public static boolean isAccessible(HexColor text, HexColor background,
+            SimpleWriter out) {
 
         double textLuminosity = text.getLuminance();
         double backgroundLuminosity = background.getLuminance();
@@ -25,7 +26,8 @@ public class ContrastChecker {
 
         // Formula is: (L1 + 0.05) / (L2 + 0.05)
         double ratio = (lighter + 0.05) / (darker + 0.05);
-        boolean accessible = ratio > WCAG_RATIO;
+        boolean accessible = ratio >= WCAG_RATIO;
+        out.println("Your contrast ratio is:" + ratio);
 
         return accessible;
     }
@@ -37,15 +39,17 @@ public class ContrastChecker {
 
         out.println("Contrast Checker for Compliance with WCAG AA standards.");
 
-        out.println("Please enter your text color: ");
+        out.print("Please enter your text color: ");
         String textString = in.nextLine();
-        out.println("Please enter your background color: ");
+        out.println();
+        out.print("Please enter your background color: ");
         String backgroundString = in.nextLine();
+        out.println();
 
         HexColor text = new HexColorString(textString);
         HexColor background = new HexColorString(backgroundString);
 
-        if (isAccessible(text, background)) {
+        if (isAccessible(text, background, out)) {
             out.println("This color combination is accessible!");
         } else {
             out.println(

@@ -6,12 +6,13 @@ public class PaletteGenerator {
     private HexColor color;
 
     // Palette Generator uses the HexColor STRING constructor
-    public PaletteGenerator(String colory) {
-        this.color = new HexColorString();
+    public PaletteGenerator(String hex) {
+        this.color = new HexColorString(hex);
     }
 
     public static void main(String[] args) {
 
+        // Providing cornflower blue as an example
         PaletteGenerator theme = new PaletteGenerator("#6495ED");
 
         // Find the complement, light, and dark version of the primary color
