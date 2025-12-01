@@ -139,47 +139,289 @@ public abstract class HexColorTest {
      */
 
     /*
-     * Test cases for
+     * Test cases for getRed()
      */
 
-    /*
-     * Test cases for
-     */
+    @Test
+    public final void testGetRedFromRed() {
+        HexColor h = this.constructorTest("#FF0000");
+        assertEquals("FF", h.getRed());
+        assertEquals("#FF0000", h.getHexValue());
+    }
+
+    @Test
+    public final void testGetRedFromBlack() {
+        HexColor h = this.constructorTest("#000000");
+        assertEquals("00", h.getRed());
+        assertEquals("#000000", h.getHexValue());
+    }
 
     /*
-     * Test cases for
+     * Test cases for getGreen()
      */
 
-    /*
-     * Test cases for
-     */
+    @Test
+    public final void testGetGreenFromGreen() {
+        HexColor h = this.constructorTest("#00FF00");
+        assertEquals("FF", h.getGreen());
+        assertEquals("#00FF00", h.getHexValue());
+    }
+
+    @Test
+    public final void testGetGreenFromBlack() {
+        HexColor h = this.constructorTest("#000000");
+        assertEquals("00", h.getGreen());
+        assertEquals("#000000", h.getHexValue());
+    }
 
     /*
-     * Test cases for
+     * Test cases for getBlue()
      */
 
-    /*
-     * Test cases for
-     */
+    @Test
+    public final void testGetBlueFromBlue() {
+        HexColor h = this.constructorTest("#0000FF");
+        assertEquals("FF", h.getBlue());
+        assertEquals("#0000FF", h.getHexValue());
+    }
+
+    @Test
+    public final void testGetBlueFromBlack() {
+        HexColor h = this.constructorTest("#000000");
+        assertEquals("00", h.getBlue());
+        assertEquals("#000000", h.getHexValue());
+    }
+
+    // Test for getting RGB from one hex code
+
+    @Test
+    public final void testGetRGBComponentsMixed() {
+        HexColor h = this.constructorTest("#123456");
+        assertEquals("12", h.getRed());
+        assertEquals("34", h.getGreen());
+        assertEquals("56", h.getBlue());
+        assertEquals("#123456", h.getHexValue());
+    }
 
     /*
-     * Test cases for
+     * Test cases for setRGB()
      */
 
-    /*
-     * Test cases for
-     */
+    @Test
+    public final void testSetRGBAllZero() {
+        HexColor h = this.constructorTest();
+        h.setRGB(0, 0, 0);
+        assertEquals("#000000", h.getHexValue());
+    }
+
+    @Test
+    public final void testSetRGBAllMax() {
+        HexColor h = this.constructorTest();
+        h.setRGB(255, 255, 255);
+        assertEquals("#FFFFFF", h.getHexValue());
+    }
+
+    @Test
+    public final void testSetRGBMixed() {
+        HexColor h = this.constructorTest();
+        h.setRGB(27, 47, 67);
+        assertEquals("#1B2F43", h.getHexValue());
+    }
+
+    @Test
+    public final void testSetRGBOverwrite() {
+        HexColor h = this.constructorTest("#FFFFFF");
+        h.setRGB(0, 0, 0);
+        assertEquals("#000000", h.getHexValue());
+    }
 
     /*
-     * Test cases for
+     * Test cases for isValidHex()
      */
 
-    /*
-     * Test cases for
-     */
+    @Test
+    public final void testIsValidHexTrue() {
+        HexColor h = this.constructorTest();
+        assertEquals(true, h.isValidHex("#FF0000"));
+    }
+
+    @Test
+    public final void testIsValidHexTrueLowerCase() {
+        HexColor h = this.constructorTest();
+        assertEquals(true, h.isValidHex("#abc123"));
+    }
+
+    @Test
+    public final void testIsValidHexFalseNoHash() {
+        HexColor h = this.constructorTest();
+        assertEquals(false, h.isValidHex("FF0000"));
+    }
+
+    @Test
+    public final void testIsValidHexFalseShort() {
+        HexColor h = this.constructorTest();
+        assertEquals(false, h.isValidHex("#FF00"));
+    }
+
+    @Test
+    public final void testIsValidHexFalseLong() {
+        HexColor h = this.constructorTest();
+        assertEquals(false, h.isValidHex("#FF00000"));
+    }
+
+    @Test
+    public final void testIsValidHexFalseWrongChar() {
+        HexColor h = this.constructorTest();
+        assertEquals(false, h.isValidHex("#GG0000"));
+    }
+
+    @Test
+    public final void testIsValidHexNull() {
+        HexColor h = this.constructorTest();
+        assertEquals(false, h.isValidHex(null));
+    }
 
     /*
-     * Test cases for
+     * Test cases for lighten()
      */
+
+    @Test
+    public final void testLightenBlackHalfway() {
+        HexColor h = this.constructorTest("#000000");
+        HexColor lighter = h.lighten(0.5);
+        assertEquals("#7F7F7F", lighter.getHexValue());
+        assertEquals("#000000", h.getHexValue());
+    }
+
+    @Test
+    public final void testLightenRedHalfway() {
+        HexColor h = this.constructorTest("#800000");
+        HexColor lighter = h.lighten(0.5);
+        assertEquals("#BF0000", lighter.getHexValue());
+        assertEquals("#800000", h.getHexValue());
+    }
+
+    @Test
+    public final void testLightenFactorZero() {
+        HexColor h = this.constructorTest("#FF0000");
+        HexColor lighter = h.lighten(0.0);
+        assertEquals("#FF0000", lighter.getHexValue());
+        assertEquals("#FF0000", h.getHexValue());
+    }
+
+    @Test
+    public final void testLightenFactorOne() {
+        HexColor h = this.constructorTest("#000000");
+        HexColor lighter = h.lighten(1.0);
+        assertEquals("#FFFFFF", lighter.getHexValue());
+        assertEquals("#000000", h.getHexValue());
+    }
+
+    /*
+     * Test cases for darken()
+     */
+
+    @Test
+    public final void testDarkenWhiteHalfway() {
+        HexColor h = this.constructorTest("#FFFFFF");
+        HexColor darker = h.darken(0.5);
+        assertEquals("#7F7F7F", darker.getHexValue());
+        assertEquals("#FFFFFF", h.getHexValue());
+    }
+
+    @Test
+    public final void testDarkenRedHalfway() {
+        HexColor h = this.constructorTest("#FF0000");
+        HexColor darker = h.darken(0.5);
+        assertEquals("#7F0000", darker.getHexValue());
+        assertEquals("#FF0000", h.getHexValue());
+    }
+
+    @Test
+    public final void testDarkenFactorZero() {
+        HexColor h = this.constructorTest("#FF0000");
+        HexColor darker = h.darken(0.0);
+        assertEquals("#FF0000", darker.getHexValue());
+        assertEquals("#FF0000", h.getHexValue());
+    }
+
+    @Test
+    public final void testDarkenFactorOne() {
+        HexColor h = this.constructorTest("#FFFFFF");
+        HexColor darker = h.darken(1.0);
+        assertEquals("#000000", darker.getHexValue());
+        assertEquals("#FFFFFF", h.getHexValue());
+    }
+
+    /*
+     * Test cases for getLuminance()
+     */
+
+    @Test
+    public final void testGetLuminanceBlack() {
+        HexColor h = this.constructorTest("#000000");
+        assertEquals(0.0, h.getLuminance(), 0.01);
+        // the 0.01 being the allowed difference
+        assertEquals("#000000", h.getHexValue());
+    }
+
+    @Test
+    public final void testGetLuminanceWhite() {
+        HexColor h = this.constructorTest("#FFFFFF");
+        assertEquals(255.0, h.getLuminance(), 0.01);
+        assertEquals("#FFFFFF", h.getHexValue());
+    }
+
+    @Test
+    public final void testGetLuminanceRed() {
+        HexColor h = this.constructorTest("#FF0000");
+        double expected = 0.2126 * 255;
+        assertEquals(expected, h.getLuminance(), 0.01);
+        assertEquals("#FF0000", h.getHexValue());
+    }
+
+    @Test
+    public final void testGetLuminanceGreen() {
+        HexColor h = this.constructorTest("#00FF00");
+        double expected = 0.7152 * 255;
+        assertEquals(expected, h.getLuminance(), 0.01);
+        assertEquals("#00FF00", h.getHexValue());
+    }
+
+    @Test
+    public final void testGetLuminanceBlue() {
+        HexColor h = this.constructorTest("#0000FF");
+        double expected = 0.0722 * 255;
+        assertEquals(expected, h.getLuminance(), 0.01);
+        assertEquals("#00", h.getHexValue());
+    }
+
+    /*
+     * Test cases for complement()
+     */
+
+    @Test
+    public final void testComplementBlack() {
+        HexColor h = this.constructorTest("#000000");
+        HexColor comp = h.complement();
+        assertEquals("#FFFFFF", comp.getHexValue());
+        assertEquals("#000000", h.getHexValue());
+    }
+
+    @Test
+    public final void testComplementRed() {
+        HexColor h = this.constructorTest("#FF0000");
+        HexColor comp = h.complement();
+        assertEquals("#00FFFF", comp.getHexValue());
+        assertEquals("#FF0000", h.getHexValue());
+    }
+
+    @Test
+    public final void testComplementGreen() {
+        HexColor h = this.constructorTest("#00FF00");
+        HexColor comp = h.complement();
+        assertEquals("#FF00FF", comp.getHexValue());
+        assertEquals("#00FF00", h.getHexValue());
+    }
 
 }
