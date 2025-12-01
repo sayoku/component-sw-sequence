@@ -64,3 +64,14 @@ the following form: YYYY.0M.0D.
 ### Updated
 
 - Changed design to include 2 constructors, added the convention & correspondence
+
+## [2025.12.01]
+
+### Added
+
+- Designed test suite for HexColor component
+- Designed two different use cases for HexColor component
+
+### Updated
+
+- Changed design to ensure hex color code strings accept both upper and lower case
