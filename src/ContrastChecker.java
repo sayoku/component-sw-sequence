@@ -5,20 +5,34 @@ import components.simplereader.SimpleReader1L;
 import components.simplewriter.SimpleWriter;
 import components.simplewriter.SimpleWriter1L;
 
+/**
+ * A contrast check for cases in verifying that contrast and color meets
+ * accessibility standards. WCAG 2.0 level AA requires a contrast ratio of at
+ * least 4.5:1 for normal text and 3:1 for large text
+ */
 public class ContrastChecker {
 
-    // Might be useful for cases in which contrast and color meets accessibility standards
-
-    //WCAG 2.0 level AA requires a contrast ratio of at least 4.5:1 for normal text and 3:1 for large text
     private static final double WCAG_RATIO = 4.5;
 
+    /**
+     * Determines if the text and background color combination luminosity meets
+     * WCAG AA standards.
+     *
+     * @param text
+     *            the text color
+     * @param background
+     *            the background color
+     * @param out
+     *            simplewriter out
+     * @return whether the combination is accessible
+     */
     public static boolean isAccessible(HexColor text, HexColor background,
             SimpleWriter out) {
 
         double textLuminosity = text.getLuminance();
         double backgroundLuminosity = background.getLuminance();
 
-        // Since the ratio formula always puts the lighter color in the numerator, identify which
+        // The ratio formula always puts the lighter color in the numerator
 
         // Lighter closer to 255, darker closer to 0
         double lighter = Math.max(textLuminosity, backgroundLuminosity);
@@ -55,6 +69,9 @@ public class ContrastChecker {
             out.println(
                     "This color combination is not accessible: poor contrast ratio");
         }
+
+        in.close();
+        out.close();
     }
 
 }

@@ -1,11 +1,19 @@
 import components.HexColor;
 import components.HexColorString;
 
+/**
+ * Generating a color palette for a predefined color theme. May be modified in
+ * the future for user input.
+ *
+ */
 public class PaletteGenerator {
 
     private HexColor color;
 
-    // Palette Generator uses the HexColor STRING constructor
+    /**
+     * @param hex
+     *            PaletteGenerator uses HexColor STRING constructor
+     */
     public PaletteGenerator(String hex) {
         this.color = new HexColorString(hex);
     }
