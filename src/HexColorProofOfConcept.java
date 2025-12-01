@@ -21,11 +21,21 @@ public class HexColorProofOfConcept {
     private String hexValue;
 
     // Constants (default colors, black, white)
-    private static final String DEFAULT_COLOR = "#000000";
-    private static final String BLACK = "#000000";
-    private static final String WHITE = "#FFFFFF";
-    private static final String FORMAT = "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$";
 
+    /**
+     * The default color, used in the no argument constructor.
+     */
+    private static final String DEFAULT_COLOR = "#000000";
+
+    /**
+     * Hex Color String for black.
+     */
+    private static final String BLACK = "#000000";
+
+    /**
+     * Hex Color String for white.
+     */
+    private static final String WHITE = "#FFFFFF";
     /*
      * Constructors ---------------------------------------------------
      */
@@ -158,11 +168,6 @@ public class HexColorProofOfConcept {
 
     }
 
-    @Override
-    public String toString() {
-        return this.hexValue;
-    }
-
     /*
      * Main method ---------------------------------------------------
      */
@@ -215,6 +220,9 @@ public class HexColorProofOfConcept {
                 HexColorProofOfConcept.WHITE);
         out.println("Black: " + black);
         out.println("White: " + white);
+
+        in.close();
+        out.close();
 
     }
 
