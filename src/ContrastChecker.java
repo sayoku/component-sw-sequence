@@ -12,6 +12,9 @@ import components.simplewriter.SimpleWriter1L;
  */
 public class ContrastChecker {
 
+    /**
+     * WCAG AA Ratio for comparison.
+     */
     private static final double WCAG_RATIO = 4.5;
 
     /**

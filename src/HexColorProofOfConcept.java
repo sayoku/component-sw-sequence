@@ -216,6 +216,9 @@ public class HexColorProofOfConcept {
         out.println("Black: " + black);
         out.println("White: " + white);
 
+        in.close();
+        out.close();
+
     }
 
 }
