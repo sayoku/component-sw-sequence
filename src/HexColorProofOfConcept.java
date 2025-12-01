@@ -24,8 +24,6 @@ public class HexColorProofOfConcept {
     private static final String DEFAULT_COLOR = "#000000";
     private static final String BLACK = "#000000";
     private static final String WHITE = "#FFFFFF";
-    private static final String FORMAT = "^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$";
-
     /*
      * Constructors ---------------------------------------------------
      */
