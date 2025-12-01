@@ -1,8 +1,7 @@
 package components;
+// import components.HexColor;
 
-//import static org.junit.Assert.assertEquals;
-
-//import org.junit.Test;
+// import components.HexColorString;
 
 /**
  * Customized JUnit test fixture for {@code HexColorString}.
@@ -14,6 +13,11 @@ public class HexColorStringTest extends HexColorTest {
     @Override
     protected final HexColor constructorTest() {
         return new HexColorString();
+    }
+
+    @Override
+    protected final HexColor constructorTest(String hexValue) {
+        return new HexColorString(hexValue);
     }
 
 }
