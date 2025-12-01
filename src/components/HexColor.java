@@ -1,3 +1,5 @@
+package components;
+
 /**
  * {@code HexColorKernel} enhanced with secondary methods.
  */
