@@ -44,3 +44,13 @@ the following form: YYYY.0M.0D.
 ### Updated
 
 - Changed design to remove uncessary constant, made sure format representations were consistent thus far (going by 6-digit hex codes).
+
+## [2025.11.04]
+
+### Added
+
+- Designed kernel implementation for HexColor component
+
+### Updated
+
+- Changed design to include 2 constructors, added the convention & correspondence
