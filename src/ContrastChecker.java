@@ -58,7 +58,6 @@ public class ContrastChecker {
 
         out.print("Please enter your text color: ");
         String textString = in.nextLine();
-        out.println();
         out.print("Please enter your background color: ");
         String backgroundString = in.nextLine();
         out.println();

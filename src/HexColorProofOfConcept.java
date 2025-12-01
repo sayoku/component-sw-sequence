@@ -21,8 +21,20 @@ public class HexColorProofOfConcept {
     private String hexValue;
 
     // Constants (default colors, black, white)
+
+    /**
+     * The default color, used in the no argument constructor.
+     */
     private static final String DEFAULT_COLOR = "#000000";
+
+    /**
+     * Hex Color String for black.
+     */
     private static final String BLACK = "#000000";
+
+    /**
+     * Hex Color String for white.
+     */
     private static final String WHITE = "#FFFFFF";
     /*
      * Constructors ---------------------------------------------------
