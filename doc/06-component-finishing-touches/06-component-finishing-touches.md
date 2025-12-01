@@ -303,18 +303,18 @@ Take some time to fill them out honestly.
 > complete the portfolio project, how much better (or worse) do you think you
 > understand software development and why?
 
-<!-- TODO: discuss -->
+I much better understand the layering and how to actually connect those layers in context. I still feel like real world software development is nebulous, but that might just be my lacking experiences and imposter syndrome. I have a much better understanding of how version control, building the test cases ground up, and designing interfaces works. It was good to use the osu cse discipline as a point to work off from, but I also feel like I've been living out of the rigid example. The next step would be to start working with other API's and design components.
 
 > Also, did the portfolio project surface any gaps in your own knowledge of
 > software development. If so, what are those gaps and how did you address them?
 
-<!-- TODO: discuss -->
+I mentioned that this project taught me, "how to actually connect those layers in context," and I mean that I learned what specifically goes in the kernel, abstract methods, interfaces, test cases, and the specific inheritance of each (shown in the headers and the imports). I also understood, to a shallow degree, version control; however, having gone through this process and becoming very confused by branching, I now have a better mental picture of each branch and how merges work.
 
 > Finally, as a part of completing the portfolio project, to what extent has
 > your perspective of software development changed, if at all? In other words,
 > is software development something you still enjoy? If not, why not?
 
-<!-- TODO: discuss -->
+I stand by my previous statements of enjoying testing. Testing, I find, is something that is very tedious and time consuming but also reassuring to know that my implementations work. I also enjoy the part of focusing on correct behavior, regardless of the implementation. My perspective has overall not changed, and I still feel that I have a very long way to go to understanding software.
 
 > One of the challenges of completing the portfolio project is picking up a lot
 > of skills on your own. Some of these skills are, of course, software skills.
@@ -431,7 +431,5 @@ PDF to read this rubric as a table).
 If you'd like to give feedback for this assignment (or any assignment, really),
 make use of [this survey][survey]. Your feedback helps make assignments
 better for future students.
-
-<!-- TODO: follow the link to share your feedback then delete this comment -->
 
 [survey]: https://forms.gle/dumXHo6A4Enucdkq9
