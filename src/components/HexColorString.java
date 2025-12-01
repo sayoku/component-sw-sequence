@@ -1,3 +1,4 @@
+package components;
 /**
  * HexColor kernel component with primary methods. All references are non-null.
  *
